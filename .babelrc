@@ -1,0 +1,25 @@
+{
+  "env": {
+    "cjs": {
+      "presets": [
+        ["env", {
+          "targets": {
+            "node": "6"
+          }
+        }],
+        "stage-0"
+      ]
+    },
+    "es": {
+      "presets": [
+        ["env", {
+          "modules": false,
+          "targets": {
+            "node": "6"
+          }
+        }],
+        "stage-0"
+      ]
+    }
+  }
+}
