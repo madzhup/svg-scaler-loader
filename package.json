@@ -13,13 +13,14 @@
   ],
   "scripts": {
     "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
-    "build:cjs": "cross-env BABEL_ENV=cjs babel source --out-dir src",
+    "build:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir lib",
     "build": "npm run build:es && npm run build:cjs",
     "release": "standard-version",
     "lint": "eslint . --ext .js",
     "lint:update": "export PKG=eslint-config-airbnb-base; npm info \"$PKG@latest\" peerDependencies --json | command sed 's/[{},]//g ; s/: /@/g' | xargs yarn add --dev \"$PKG@latest\"",
     "precommit": "lint-staged",
-    "security": "nsp check"
+    "security": "nsp check",
+    "co": "git-cz"
   },
   "lint-staged": {
     "*.js": [
@@ -31,7 +32,6 @@
   "module": "es/index.js",
   "files": [
     "es",
-    "src",
     "dist"
   ],
   "repository": {
@@ -56,7 +56,9 @@
     "@babel/preset-env": "^7.0.0-beta.52",
     "@babel/preset-stage-0": "^7.0.0-beta.52",
     "babel-eslint": "^8.2.5",
+    "commitizen": "^2.10.1",
     "cross-env": "^5.2.0",
+    "cz-conventional-changelog": "^2.1.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-config-prettier": "^2.9.0",
@@ -67,5 +69,10 @@
     "nsp": "^3.2.1",
     "prettier": "^1.13.7",
     "webpack": "^4.16.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   }
 }
