@@ -1,4 +1,4 @@
-import SVGTranslator from 'svg-scaler-viewbox/lib/SVGTranslator';
+import SVGTranslator from 'svg-scaler-viewbox';
 import { getOptions } from 'loader-utils';
 import validateOptions from 'schema-utils';
 
@@ -18,17 +18,18 @@ const schema = {
 };
 
 export default function SvgScalerLoader(source) {
-  const { svgo = false, ...options } = getOptions(this);
-  const noSvgo = !svgo;
+  const options = getOptions(this);
 
   validateOptions(schema, options, 'Webpack SVG scaler Loader');
 
   const callback = this.async();
-  const svgTranslator = new SVGTranslator({ ...options, noSvgo });
+  const svgTranslator = new SVGTranslator(options);
   svgTranslator
-    .parser(source)
+    .process(source)
     .then(data => {
       callback(null, data);
     })
-    .catch(callback);
+    .catch(e => {
+      callback(e);
+    });
 }

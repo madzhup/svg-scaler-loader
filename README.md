@@ -52,10 +52,6 @@ import Icon from './icon.svg'
 
 ## Options
 
-### `svgo`
-
-`type:boolean`, default is `false`, if you want optimize with [svgo](https://github.com/svg/svgo), please set it `true`;
-
 ### `width`
 
 `type:number`, will make the svg scale to the size by the number, will fix to square, unity all svg files to same size.
