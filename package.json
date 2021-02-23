@@ -1,6 +1,6 @@
 {
   "name": "svg-scaler-loader",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Webpack svg scale loader",
   "keywords": [
     "webpack",
