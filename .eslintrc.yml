@@ -1,5 +1,5 @@
 ---
-  parser: babel-eslint
-  extends:
-    - airbnb-base
-    - plugin:prettier/recommended
+parser: babel-eslint
+extends:
+  - airbnb-base
+  - prettier
